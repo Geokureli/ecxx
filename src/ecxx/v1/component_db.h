@@ -4,6 +4,7 @@
 #include "decl.h"
 #include "bit_vector.h"
 #include <ecxx/identity_generator.h>
+#include <functional>
 
 namespace ecxx {
 
