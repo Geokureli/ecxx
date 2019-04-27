@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ecxx.h"
+#include "ecxx1.h"
 
 namespace ecxx {
 
@@ -9,7 +9,7 @@ class ecs_node;
 class ecs_node_storage : public basic_component_manager {
 public:
 
-    explicit ecs_node_storage(world_t& world)
+    explicit ecs_node_storage(world_v1_t& world)
             : basic_component_manager{world} {
         reserve(world.capacity());
         initialize(0);
@@ -386,6 +386,7 @@ class component_traits<ecs_node> {
 public:
     using manager_type = ecs_node_storage;
     using reference = ecs_node;
+    using const_reference = const ecs_node;
 };
 
 }

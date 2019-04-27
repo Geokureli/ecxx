@@ -1,4 +1,4 @@
-#include <ecxx/bit_vector.h>
+#include <ecxx/v1/bit_vector.h>
 
 #include <gtest/gtest.h>
 

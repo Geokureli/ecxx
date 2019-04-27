@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <cassert>
+#include <algorithm>
 
 namespace ecxx {
 
@@ -38,8 +39,10 @@ public:
     };
 
     explicit bit_vector(size_type size)
-            : data_{new uint8_t[(size >> bit_shift) + 1u]},
-              size_{size} {
+            : size_{size},
+              len_{(size >> bit_shift) + 1u},
+              data_{new uint8_t[len_]} {
+        std::fill_n(data_, len_, 0u);
     }
 
     ~bit_vector() {
@@ -81,6 +84,11 @@ public:
         return (data_[address(index)] & mask(index)) == 0u;
     }
 
+    inline bool is_true(size_type index) const {
+        assert(data_ != nullptr && index < size_);
+        return (data_[address(index)] & mask(index)) != 0u;
+    }
+
     inline bool enable_if_not(size_type index) {
         assert(data_ != nullptr && index < size_);
         auto a = address(index);
@@ -107,8 +115,9 @@ public:
 
 private:
 
-    uint8_t* data_;
     size_type size_;
+    size_type len_;
+    uint8_t* data_;
 
     inline static size_type address(size_type index) {
         return index >> bit_shift;
