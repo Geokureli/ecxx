@@ -11,11 +11,13 @@
 - [ ] Groups (aka Managed Family)
 - [ ] Custom component data managers
 
-## Notes
+## Design Notes
+
+- Q: entt has back-to-front iteration through component data?
 
 hypo: forward data iteration - better cache locality
-- Q: entt has back-to-front iteration through component data?
-- need to keep forward data iteration
+is it worth to keep forward data iteration? 
+Or read-only/mutable iterations could be provided
 
 ## Badges
 
@@ -24,4 +26,17 @@ hypo: forward data iteration - better cache locality
 
 ## CI
 
+- [ ] travis-ci
+- [ ] appveyor
+- [ ] coverall
+
 ## Docs
+
+- [ ] description
+- [ ] goals
+
+## Demo
+
+- web versions are required
+- [ ] particles simulation
+- [ ] asteroids example

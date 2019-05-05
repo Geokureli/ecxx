@@ -7,7 +7,7 @@
 namespace ecxx {
 
 template<typename Tag = uint32_t>
-class entity_pool_t {
+class basic_entity_pool {
 public:
 
     using spec = entity_spec<Tag>;
@@ -15,7 +15,7 @@ public:
     using index_type = typename spec::index_type;
     using version_type = typename spec::version_type;
 
-    entity_pool_t() {
+    basic_entity_pool() {
         list_.emplace_back(value_type::null);
     }
 

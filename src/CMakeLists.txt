@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-add_library(ecxx
-            STATIC
+add_library(ecxx STATIC
 
             ecxx/identity_generator.h
             ecxx/ecxx.h
@@ -36,7 +35,7 @@ add_library(ecxx
             ecxx/v2/entity_wrapper_impl.h
             ecxx/v2/view.h
             ecxx/v2/runtime_view.h
-            )
+            ecxx/v2/mutable_view.h)
 
 target_include_directories(ecxx
                            PUBLIC
