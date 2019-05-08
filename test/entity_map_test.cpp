@@ -1,4 +1,4 @@
-#include <ecxx/v2/entity_map.h>
+#include <ecxx/impl/entity_map.h>
 #include <gtest/gtest.h>
 
 using namespace ecxx;

@@ -1,4 +1,4 @@
-#include <ecxx/v2/sparse_vector.h>
+#include <ecxx/impl/sparse_vector.h>
 #include <gtest/gtest.h>
 
 using namespace ecxx;

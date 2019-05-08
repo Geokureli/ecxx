@@ -1,4 +1,4 @@
-#include <ecxx/v2/bit_count.h>
+#include <ecxx/impl/bit_count.h>
 #include <gtest/gtest.h>
 
 using namespace ecxx;

@@ -1,9 +1,9 @@
-#include <ecxx/v2/entity_pool.h>
+#include <ecxx/impl/entity_pool.h>
 #include <gtest/gtest.h>
 
 using namespace ecxx;
 
-using entity_allocator = entity_pool_t<>;
+using entity_allocator = basic_entity_pool<>;
 
 uint32_t count_entities(entity_allocator& pool) {
     uint32_t count = 0u;

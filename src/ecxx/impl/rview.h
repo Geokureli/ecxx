@@ -7,7 +7,7 @@
 namespace ecxx {
 
 template<typename T, typename ...Component>
-class view_t {
+class basic_rview {
 public:
     using entity_type = entity_value<T>;
     using index_type = typename entity_type::index_type;
@@ -23,16 +23,14 @@ public:
 
     class iterator {
     public:
-        iterator(table_type& table, entity_vector_iterator it)
+        iterator(table_type& table, uint32_t it)
                 : table_{table},
                   it_{it} {
             skips();
         }
 
         inline iterator& operator++() noexcept {
-            if (it_ != first_map().end() && *it_ == ent_) {
-                ++it_;
-            }
+            --it_;
             skips();
             return *this;
         }
@@ -46,11 +44,13 @@ public:
         }
 
         inline void skips() {
-            const auto end = first_map().end();
-            while (it_ != end && !valid(*it_)) {
-                ++it_;
+            // todo: size recovery (case we remove entities before *it)
+            assert(it_ < (first_map().size() + 1));
+
+            while (it_ != 0 && !valid(first_map().at(it_))) {
+                --it_;
             }
-            ent_ = it_ == end ? entity_type::null : *it_;
+            ent_ = first_map().at(it_);
         }
 
         inline bool valid(entity_type entity) const {
@@ -75,12 +75,12 @@ public:
         }
 
     private:
-        entity_vector_iterator it_;
+        uint32_t it_;
         entity_type ent_;
         table_type& table_;
     };
 
-    explicit view_t(components_db <T>& db) {
+    explicit basic_rview(components_db <T>& db) {
         table_index_type i{};
         ((access_[i] = table_[i] = &db.template ensure<Component>(), ++i), ...);
 
@@ -90,16 +90,16 @@ public:
     }
 
     iterator begin() {
-        return {table_, table_[0]->begin()};
+        return {table_, table_[0]->size()};
     }
 
     iterator end() {
-        return {table_, table_[0]->end()};
+        return {table_, 0};
     }
 
     template<typename Comp>
     constexpr inline Comp& unsafe_get(table_index_type i, entity_type e) {
-        return static_cast<entity_map <T, Comp>*>(access_[i++])->get(e);
+        return static_cast<entity_map <T, Comp>*>(access_[i])->get(e);
     }
 
     template<typename Func>

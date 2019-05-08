@@ -1,4 +1,4 @@
-#include <ecxx/v2/world.h>
+#include <ecxx/impl/world.h>
 #include <gtest/gtest.h>
 
 using namespace ecxx;

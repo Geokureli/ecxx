@@ -1,7 +1,7 @@
-#include <ecxx/v2/ecxx2.h>
+#include <ecxx/ecxx.h>
 
 #include <gtest/gtest.h>
-#include "../common/components.h"
+#include "common/components.h"
 
 using namespace ecxx;
 

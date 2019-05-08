@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstddef>
 #include "entity_spec.h"
 
 namespace ecxx {

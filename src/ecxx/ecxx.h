@@ -1,6 +1,7 @@
 #pragma once
 
-#include "v2/ecxx2.h"
+#include "impl/world.h"
+#include "impl/entity_wrapper_impl.h"
 
 namespace ecxx {
 

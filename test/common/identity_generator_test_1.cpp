@@ -1,4 +1,4 @@
-#include <ecxx/identity_generator.h>
+#include <ecxx/impl/identity_generator.h>
 #include <gtest/gtest.h>
 #include "identity_generator_shared.h"
 

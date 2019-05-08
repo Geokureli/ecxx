@@ -6,7 +6,7 @@
 #include "entity_wrapper.h"
 #include "view.h"
 #include "runtime_view.h"
-#include "mutable_view.h"
+#include "rview.h"
 
 namespace ecxx {
 
@@ -111,7 +111,7 @@ public:
 
     template<typename ...Component>
     inline auto view() {
-        return view_t<EntityType, Component...>{components_};
+        return basic_view<EntityType, Component...>{components_};
     }
 
     /** special view provide back-to-front iteration
@@ -119,7 +119,7 @@ public:
      **/
     template<typename ...Component>
     inline auto mutable_view() {
-        return basic_mutable_view<EntityType, Component...>{components_};
+        return basic_rview<EntityType, Component...>{components_};
     }
 
     template<typename It>

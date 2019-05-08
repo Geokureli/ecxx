@@ -1,4 +1,4 @@
-#include <ecxx/v2/entity_value.h>
+#include <ecxx/impl/entity_value.h>
 #include <gtest/gtest.h>
 
 using namespace ecxx;

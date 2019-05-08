@@ -1,7 +1,7 @@
 #pragma once
 
 #include "entity_map.h"
-#include "../identity_generator.h"
+#include "identity_generator.h"
 
 namespace ecxx {
 

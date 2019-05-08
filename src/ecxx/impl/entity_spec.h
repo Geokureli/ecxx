@@ -5,8 +5,7 @@
 namespace ecxx {
 
 template<typename Tag>
-struct entity_spec {
-};
+struct entity_spec;
 
 template<>
 struct entity_spec<uint32_t> {

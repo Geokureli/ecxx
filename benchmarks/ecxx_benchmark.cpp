@@ -4,7 +4,7 @@
 #include <chrono>
 #include <iterator>
 #include <gtest/gtest.h>
-#include <ecxx/v2/world.h>
+#include <ecxx/ecxx.h>
 
 using namespace ecxx;
 
