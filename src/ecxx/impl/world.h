@@ -118,7 +118,7 @@ public:
         and allow modify primary component map during iteration
      **/
     template<typename ...Component>
-    inline auto mutable_view() {
+    inline auto rview() {
         return basic_rview<EntityType, Component...>{components_};
     }
 

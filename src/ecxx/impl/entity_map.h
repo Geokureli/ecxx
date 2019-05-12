@@ -85,7 +85,7 @@ public:
 
         assert(!base_type::has(e));
 
-        index_type di = base_type::entity_.size();
+        auto di = static_cast<index_type>(base_type::entity_.size());
         base_type::entity_.emplace_back(e);
         base_type::table_.insert(e.index(), di);
 

@@ -66,6 +66,14 @@ public:
         return value_ != null_value;
     }
 
+    inline entity_value(const entity_value& v) noexcept = default;
+
+    inline entity_value(entity_value&& v) noexcept = default;
+
+    inline entity_value& operator=(const entity_value& v) noexcept = default;
+
+    inline entity_value& operator=(entity_value&& v) noexcept = default;
+
 private:
     value_type value_;
 };

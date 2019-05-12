@@ -60,6 +60,7 @@ if (CMAKE_BUILD_TYPE MATCHES Debug)
                            ${ECXX_COMPILE_WARNINGS}
                            )
 else ()
+    set_target_properties(ecxx PROPERTIES INTERPROCEDURAL_OPTIMIZATION TRUE)
     target_compile_options(ecxx
                            PRIVATE
                            -fno-exceptions
